@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Tab Order Helper Example Page</title>
+		<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.taborderhelper.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#txtAddress2").taborderhelper("nextField",{nextField:"ddStates"});
+				$("#txtFirstName").taborderhelper("nextField",{nextField:"txtAddress2"});
+								
+				$().taborderhelper("setTabOrder");
+				
+				$("#1_tabindex").text($("#txtFirstName").attr("tabIndex"));
+				$("#2_tabindex").text($("#txtLastName").attr("tabIndex"));
+				$("#3_tabindex").text($("#txtAddress1").attr("tabIndex"));
+				$("#4_tabindex").text($("#txtAddress2").attr("tabIndex"));
+				$("#5_tabindex").text($("#txtAddress3").attr("tabIndex"));
+				$("#6_tabindex").text($("#ddStates").attr("tabIndex"));
+				
+			});
+
+
+		</script>
+		<style type="text/css">
+			input {
+				margin-bottom:10px;
+			}
+			body{
+				background-color:#EDEDED;
+			}
+			#mainContent{
+				margin: 0 auto;
+				width:600px;
+				font-family: Arial, Helvetica, sans-serif;
+				padding:10px;
+				background-color:#fff;
+			}
+		</style>	
+	</head>
+	<body>
+		<div id="mainContent">
+			<h1>Tab Index Demo Page</h1>
+			
+			<form>
+					  <label>First Name</label><br/><input id="txtFirstName" maxlength="30"></input>&nbsp; TabIndex: <span id="1_tabindex"></span>
+				<br /><label>Last Name</label><br/><input id="txtLastName" maxlength="30"></input>&nbsp; TabIndex: <span id="2_tabindex"></span>				
+				<br /><label>Address 1</label><br/><input id="txtAddress1" maxlength="30"></input>&nbsp; TabIndex: <span id="3_tabindex"></span>
+				<br /><label>Address 2</label><br/><input id="txtAddress2" maxlength="30"></input>&nbsp; TabIndex: <span id="4_tabindex"></span>
+				<br /><label>Address 3</label><br/><input id="txtAddress3" maxlength="30"></input>&nbsp; TabIndex: <span id="5_tabindex"></span>
+				<br /><label>State</label><br/><select id="ddStates">
+							<option>Wyoming</option>
+							<option>Wisconsin</option>
+							<option>Washington</option>
+				</select>&nbsp;<span id="6_tabindex"></span>
+				<br />
+			</form>
+		</div>
+	</body>
+</html>
+
+
